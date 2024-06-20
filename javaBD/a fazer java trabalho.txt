@@ -1,0 +1,5 @@
+- select comecando por determinada letra por scanner ( usando like no sql )
+- select by id
+- deletar by id
+- update by id
+bônus: Interface para implementações
