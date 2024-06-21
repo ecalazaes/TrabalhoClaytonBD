@@ -14,9 +14,19 @@ public class TesteDaoDeleteById {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
         Contato contato = null;
+        int id = -1;
 
-        System.out.print("Qual ID deseja deletar? ");
-        int id = Integer.parseInt(sc.nextLine());
+        while (true) {
+            System.out.print("Qual ID deseja deletar? ");
+            String opcao = sc.nextLine();
+
+            if (opcao.matches("\\d+")) {
+                id = Integer.parseInt(opcao);
+                break;
+            } else {
+                System.out.println("Por favor, digite um número válido.");
+            }
+        }
 
         try {
             ContatoDao dao = new ContatoDao();
@@ -26,18 +36,17 @@ public class TesteDaoDeleteById {
         }
 
         if (contatos != null && !contatos.isEmpty()) {
-            contato = contatos.get(0);
-            for (Contato teste : contatos) {
+            for (Contato contatoDeletar : contatos) {
                 System.out.println();
                 System.out.println("====================================================");
-                System.out.println("Nome: " + teste.getNome());
-                System.out.println("Email: " + teste.getEmail());
-                System.out.println("Endereço: " + teste.getEndereco());
+                System.out.println("Nome: " + contatoDeletar.getNome());
+                System.out.println("Email: " + contatoDeletar.getEmail());
+                System.out.println("Endereço: " + contatoDeletar.getEndereco());
                 System.out.println("====================================================");
                 System.out.println();
             }
 
-            System.out.print("Deseja deletar este contato (S/N) ? ");
+            System.out.print("Deseja deletar este contato (S/N)? ");
             char op = sc.nextLine().toUpperCase().charAt(0);
             if (op == 'S') {
                 try {
@@ -48,12 +57,12 @@ public class TesteDaoDeleteById {
                     e.printStackTrace();
                 }
             } else {
-                System.out.println("Ok, não vamos deletar o contato!");
+                System.out.println("Ok, não vamos deletar o contato.");
             }
         } else {
             System.out.println("Contato não encontrado!");
-
         }
+
         retornarMenuPrincipal();
         sc.close();
     }

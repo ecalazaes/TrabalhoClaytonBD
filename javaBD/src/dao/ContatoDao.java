@@ -81,7 +81,7 @@ public class ContatoDao implements RegrasDao<Contato> {
     }
 
     @Override
-    public List<Contato> getListaByInicial(String inicial) throws SQLException {
+    public List<Contato> getListaByInicial(char inicial) throws SQLException {
         String query = "select * from contatos where nome like ?";
         PreparedStatement stmt = con.prepareStatement(query);
         stmt.setString(1, inicial + "%");

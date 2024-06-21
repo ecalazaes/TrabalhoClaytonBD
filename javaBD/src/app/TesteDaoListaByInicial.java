@@ -14,8 +14,8 @@ public class TesteDaoListaByInicial {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
 
-        System.out.print("Deseja buscar contato inicial com qual letra? ");
-        String inicial = sc.nextLine();
+        System.out.print("Deseja buscar contato com qual inicial? ");
+        char inicial = sc.next().charAt(0);
 
         try {
             ContatoDao dao = new ContatoDao();

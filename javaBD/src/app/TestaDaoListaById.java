@@ -13,9 +13,19 @@ public class TestaDaoListaById {
     public static void main(String[] args)  {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
+        int id = -1;
 
-        System.out.print("Deseja buscar contato com qual ID? ");
-        int id = Integer.parseInt(sc.nextLine());
+        while (true) {
+            System.out.print("Deseja buscar contato com qual ID? ");
+            String opcao = sc.nextLine();
+
+            if (opcao.matches("\\d+")) {
+                id = Integer.parseInt(opcao);
+                break;
+            } else {
+                System.out.println("Por favor, digite um número válido.");
+            }
+        }
 
         try {
             ContatoDao dao = new ContatoDao();

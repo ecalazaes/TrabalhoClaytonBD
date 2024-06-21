@@ -13,9 +13,19 @@ public class TestaDaoUpdateById {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
+        int id = -1;
 
-        System.out.print("Qual ID deseja atualizar? ");
-        int id = Integer.parseInt(sc.nextLine());
+        while (true) {
+            System.out.print("Qual ID deseja atualizar? ");
+            String opcao = sc.nextLine();
+
+            if (opcao.matches("\\d+")) {
+                id = Integer.parseInt(opcao);
+                break;
+            } else {
+                System.out.println("Por favor, digite um número válido.");
+            }
+        }
 
         try {
             ContatoDao dao = new ContatoDao();
@@ -25,7 +35,7 @@ public class TestaDaoUpdateById {
         }
 
         if (contatos != null && !contatos.isEmpty()) {
-            for (Contato contato : contatos ) {
+            for (Contato contato : contatos) {
                 System.out.println();
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
@@ -35,22 +45,22 @@ public class TestaDaoUpdateById {
                 System.out.println();
             }
 
-            System.out.println("Por favor inserir novos dados:");
+            System.out.println("Por favor, insira os novos dados:");
 
-            System.out.print("Nome: ");
+            System.out.print("Novo Nome: ");
             String nome = sc.nextLine();
 
-            System.out.print("Email: ");
+            System.out.print("Novo Email: ");
             String email = sc.nextLine();
 
-            System.out.print("Endereco: ");
+            System.out.print("Novo Endereço: ");
             String endereco = sc.nextLine();
 
-            Contato contato = new Contato(nome, email, endereco);
+            Contato contatoAtualizado = new Contato(nome, email, endereco);
 
             try {
                 ContatoDao dao = new ContatoDao();
-                dao.updateById(id, contato);
+                dao.updateById(id, contatoAtualizado);
                 System.out.println("Contato atualizado com sucesso!");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -59,6 +69,7 @@ public class TestaDaoUpdateById {
         } else {
             System.out.println("Não existe contato com esse ID!");
         }
+
         retornarMenuPrincipal();
         sc.close();
     }
