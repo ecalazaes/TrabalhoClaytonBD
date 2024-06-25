@@ -10,7 +10,7 @@ import java.util.Scanner;
 import static app.MainApp.retornarMenuPrincipal;
 
 public class TestaDaoListaById {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
         int id;
@@ -38,7 +38,7 @@ public class TestaDaoListaById {
         if (contatos != null && !contatos.isEmpty()) {
             System.out.println();
             System.out.println("Contato com id [" + id + "] foi encontrado.");
-            for (Contato contato : contatos ) {
+            for (Contato contato : contatos) {
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
                 System.out.println("Email: " + contato.getEmail());

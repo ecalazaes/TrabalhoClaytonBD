@@ -1,18 +1,17 @@
 package app;
 
-import model.Contato;
-
 import java.util.Scanner;
 
 public class MainApp {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean rodando = true;
         int op;
 
-        while(true) {
-            while(true) {
+        while (true) {
+
+            while (true) {
+
                 menu();
                 if (sc.hasNextInt()) {
                     op = sc.nextInt();
@@ -47,7 +46,8 @@ public class MainApp {
                     System.out.println("Saindo...");
                     sc.close();
                     return;
-            } break;
+            }
+            break;
         }
     }
 
@@ -64,7 +64,7 @@ public class MainApp {
         System.out.print("Escolha uma opção:  ");
     }
 
-    public static void retornarMenuPrincipal(){
+    public static void retornarMenuPrincipal() {
         Scanner sc = new Scanner(System.in);
         char op;
         do {

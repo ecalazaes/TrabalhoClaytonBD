@@ -10,7 +10,7 @@ import java.util.Scanner;
 import static app.MainApp.retornarMenuPrincipal;
 
 public class TesteDaoListaByInicial {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
 
@@ -27,7 +27,7 @@ public class TesteDaoListaByInicial {
         if (contatos != null && !contatos.isEmpty()) {
             System.out.println();
             System.out.println("Lista de contatos com a inicial [" + inicial + "].");
-            for (Contato contato : contatos ) {
+            for (Contato contato : contatos) {
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
                 System.out.println("Email: " + contato.getEmail());

@@ -13,7 +13,7 @@ public class TestaDaoUpdateById {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
-        Contato contatoAtualizado = null;
+        Contato contatoAtualizado;
         int id;
 
         while (true) {

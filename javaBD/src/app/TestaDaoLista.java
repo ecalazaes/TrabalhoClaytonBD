@@ -5,12 +5,11 @@ import model.Contato;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Scanner;
 
 import static app.MainApp.retornarMenuPrincipal;
 
 public class TestaDaoLista {
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         List<Contato> contatos;
 
         try {
@@ -23,7 +22,7 @@ public class TestaDaoLista {
         if (contatos != null && !contatos.isEmpty()) {
             System.out.println();
             System.out.println("A lista de contatos possui " + contatos.size() + " contatos.");
-            for (Contato contato : contatos ) {
+            for (Contato contato : contatos) {
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
                 System.out.println("Email: " + contato.getEmail());
