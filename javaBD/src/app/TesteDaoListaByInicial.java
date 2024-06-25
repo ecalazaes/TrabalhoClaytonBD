@@ -15,7 +15,7 @@ public class TesteDaoListaByInicial {
         List<Contato> contatos = null;
 
         System.out.print("Deseja buscar contato com qual inicial? ");
-        char inicial = sc.next().charAt(0);
+        char inicial = sc.next().toUpperCase().charAt(0);
 
         try {
             ContatoDao dao = new ContatoDao();
@@ -25,18 +25,19 @@ public class TesteDaoListaByInicial {
         }
 
         if (contatos != null && !contatos.isEmpty()) {
+            System.out.println();
+            System.out.println("Lista de contatos com a inicial [" + inicial + "].");
             for (Contato contato : contatos ) {
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
                 System.out.println("Email: " + contato.getEmail());
                 System.out.println("Endereço: " + contato.getEndereco());
-                System.out.println();
             }
+            System.out.println();
 
         } else {
             System.out.println("Não existe contato com essa inicial!");
         }
-
         retornarMenuPrincipal();
         sc.close();
     }

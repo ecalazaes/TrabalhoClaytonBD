@@ -13,17 +13,18 @@ public class TestaDaoListaById {
     public static void main(String[] args)  {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
-        int id = -1;
+        int id;
 
         while (true) {
             System.out.print("Deseja buscar contato com qual ID? ");
-            String opcao = sc.nextLine();
 
-            if (opcao.matches("\\d+")) {
-                id = Integer.parseInt(opcao);
+            if (sc.hasNextInt()) {
+                id = sc.nextInt();
+                sc.nextLine();
                 break;
             } else {
                 System.out.println("Por favor, digite um número válido.");
+                sc.nextLine();
             }
         }
 
@@ -35,8 +36,9 @@ public class TestaDaoListaById {
         }
 
         if (contatos != null && !contatos.isEmpty()) {
+            System.out.println();
+            System.out.println("Contato com id [" + id + "] foi encontrado.");
             for (Contato contato : contatos ) {
-                System.out.println();
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
                 System.out.println("Email: " + contato.getEmail());
@@ -48,7 +50,6 @@ public class TestaDaoListaById {
         } else {
             System.out.println("Não existe contato com esse ID!");
         }
-
         retornarMenuPrincipal();
         sc.close();
     }

@@ -7,13 +7,22 @@ import java.util.Scanner;
 public class MainApp {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
         boolean rodando = true;
+        int op;
 
         do {
-            menu();
-            int op = Integer.parseInt(sc.nextLine());
+            while(true) {
+                menu();
+                if (sc.hasNextInt()) {
+                    op = sc.nextInt();
+                    sc.nextLine();
+                    break;
+                } else {
+                    System.out.println("Por favor, digite um número válido.");
+                    sc.nextLine();
+                }
+            }
 
             switch (op) {
                 case 1:
@@ -29,11 +38,11 @@ public class MainApp {
                     rodando = false;
                     break;
                 case 4:
-                     TesteDaoListaByInicial.main(new String[]{});
-                     rodando = false;
+                    TesteDaoListaByInicial.main(new String[]{});
+                    rodando = false;
                     break;
                 case 5:
-                     TestaDaoUpdateById.main(new String[]{});
+                    TestaDaoUpdateById.main(new String[]{});
                     rodando = false;
                     break;
                 case 6:
@@ -49,7 +58,6 @@ public class MainApp {
                     break;
             }
         } while (rodando);
-
         sc.close();
     }
 
@@ -84,6 +92,5 @@ public class MainApp {
         } while (op != 'S' && op != 'N');
         sc.close();
     }
-
 }
 

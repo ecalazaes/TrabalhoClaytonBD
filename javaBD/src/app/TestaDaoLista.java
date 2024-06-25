@@ -20,14 +20,16 @@ public class TestaDaoLista {
         }
 
         if (contatos != null && !contatos.isEmpty()) {
+            System.out.println();
+            System.out.println("A lista de contatos possui " + contatos.size() + " contatos.");
             for (Contato contato : contatos ) {
                 System.out.println("====================================================");
                 System.out.println("Nome: " + contato.getNome());
                 System.out.println("Email: " + contato.getEmail());
                 System.out.println("Endereço: " + contato.getEndereco());
 
-                System.out.println();
             }
+            System.out.println();
         } else {
             System.out.println("Lista de contatos está vazia!");
         }

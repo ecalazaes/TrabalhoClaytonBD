@@ -12,46 +12,43 @@ public class TestaDaoInsereScanner {
     public static void main(String[] args) {
         Contato contato = null;
         Scanner sc = new Scanner(System.in);
+        int qtdAddContato;
 
-        int opcao = 0;
-        boolean entradaValida = false;
+        while (true) {
+            System.out.print("Deseja adicionar quantos contatos? ");
 
-        while (!entradaValida) {
-            System.out.print("Deseje adicionar quantos contatos? ");
-            String opcaoStr = sc.nextLine();
-
-            if (opcaoStr.matches("\\d+")) {
-                opcao = Integer.parseInt(opcaoStr);
-                entradaValida = true;
+            if (sc.hasNextInt()) {
+                qtdAddContato = sc.nextInt();
+                sc.nextLine();
+                break;
             } else {
-                System.out.println("Por favor, insira um número inteiro válido.");
+                System.out.println("Por favor, digite um número válido.");
+                sc.nextLine();
             }
         }
 
-        for (int i = 0; i < opcao; i++) {
-            System.out.print("Insira o nome do contato [" + (i + 1) + "]: ");
+        for (int i = 0; i < qtdAddContato; i++) {
+            System.out.print("Insira o nome do " + (i + 1) + "° contato: ");
             String nome = sc.nextLine();
 
-            System.out.print("Insira o Email do contato [" + (i + 1) + "]: ");
+            System.out.print("Insira o email do " + (i + 1) + "° contato: ");
             String email = sc.nextLine();
 
-            System.out.print("Insira o Endereço do contato [" + (i + 1) + "]: ");
+            System.out.print("Insira o endereço do " + (i + 1) + "° contato: ");
             String endereco = sc.nextLine();
-
-            System.out.println();
 
             contato = new Contato(nome, email, endereco);
 
             try {
                 ContatoDao dao = new ContatoDao();
                 dao.adiciona(contato);
-                System.out.println("Contato " + (i + 1) + " adicionado com sucesso!");
+                System.out.println("Contato [" + contato.getNome() + "] adicionado com sucesso!");
+                System.out.println();
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
         retornarMenuPrincipal();
         sc.close();
     }
