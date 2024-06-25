@@ -78,5 +78,6 @@ public class TestaDaoUpdateById {
         }
         retornarMenuPrincipal();
         sc.close();
+
     }
 }

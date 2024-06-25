@@ -5,12 +5,13 @@ import model.Contato;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
 import static app.MainApp.retornarMenuPrincipal;
 
 public class TestaDaoLista {
     public static void main(String[] args)  {
-        List<Contato> contatos = null;
+        List<Contato> contatos;
 
         try {
             ContatoDao dao = new ContatoDao();

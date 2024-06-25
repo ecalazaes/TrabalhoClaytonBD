@@ -10,7 +10,7 @@ import static app.MainApp.retornarMenuPrincipal;
 
 public class TestaDaoInsereScanner {
     public static void main(String[] args) {
-        Contato contato = null;
+        Contato contato;
         Scanner sc = new Scanner(System.in);
         int qtdAddContato;
 

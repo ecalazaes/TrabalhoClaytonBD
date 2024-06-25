@@ -11,7 +11,7 @@ public class MainApp {
         boolean rodando = true;
         int op;
 
-        do {
+        while(true) {
             while(true) {
                 menu();
                 if (sc.hasNextInt()) {
@@ -27,38 +27,28 @@ public class MainApp {
             switch (op) {
                 case 1:
                     TestaDaoInsereScanner.main(new String[]{});
-                    rodando = false;
                     break;
                 case 2:
                     TestaDaoLista.main(new String[]{});
-                    rodando = false;
                     break;
                 case 3:
                     TestaDaoListaById.main(new String[]{});
-                    rodando = false;
                     break;
                 case 4:
                     TesteDaoListaByInicial.main(new String[]{});
-                    rodando = false;
                     break;
                 case 5:
                     TestaDaoUpdateById.main(new String[]{});
-                    rodando = false;
                     break;
                 case 6:
                     TesteDaoDeleteById.main(new String[]{});
-                    rodando = false;
                     break;
                 case 7:
                     System.out.println("Saindo...");
-                    rodando = false;
-                    break;
-                default:
-                    System.out.println("Opção inválida. Tente Novamente.");
-                    break;
-            }
-        } while (rodando);
-        sc.close();
+                    sc.close();
+                    return;
+            } break;
+        }
     }
 
     private static void menu() {
@@ -93,4 +83,3 @@ public class MainApp {
         sc.close();
     }
 }
-
