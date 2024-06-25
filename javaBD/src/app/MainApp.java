@@ -8,8 +8,6 @@ public class MainApp {
         Scanner sc = new Scanner(System.in);
         int op;
 
-        while (true) {
-
             while (true) {
 
                 menu();
@@ -34,30 +32,28 @@ public class MainApp {
                     TestaDaoListaById.main(new String[]{});
                     break;
                 case 4:
-                    TesteDaoListaByInicial.main(new String[]{});
+                    TestaDaoListaByInicial.main(new String[]{});
                     break;
                 case 5:
                     TestaDaoUpdateById.main(new String[]{});
                     break;
                 case 6:
-                    TesteDaoDeleteById.main(new String[]{});
+                    TestaDaoDeleteById.main(new String[]{});
                     break;
                 case 7:
                     System.out.println("Saindo...");
                     sc.close();
-                    return;
+                    break;
             }
-            break;
-        }
     }
 
     private static void menu() {
         System.out.println();
         System.out.println("Menu:");
         System.out.println("1. Inserir contatos");
-        System.out.println("2. Buscar todos contatos");
-        System.out.println("3. Buscar contatos por ID");
-        System.out.println("4. Buscar pela Inicial contatos");
+        System.out.println("2. Listar todos contatos");
+        System.out.println("3. Listar contatos por ID");
+        System.out.println("4. Listar contatos pela Inicial");
         System.out.println("5. Atualizar contatos");
         System.out.println("6. Deletar contatos");
         System.out.println("7. Sair");

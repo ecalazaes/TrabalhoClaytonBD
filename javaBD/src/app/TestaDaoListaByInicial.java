@@ -9,11 +9,13 @@ import java.util.Scanner;
 
 import static app.MainApp.retornarMenuPrincipal;
 
-public class TesteDaoListaByInicial {
+public class TestaDaoListaByInicial {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
 
+        System.out.println();
+        System.out.println("Escolhida opção 4 - Listar contato(s) pela inicial.");
         System.out.print("Deseja buscar contato com qual inicial? ");
         char inicial = sc.next().toUpperCase().charAt(0);
 

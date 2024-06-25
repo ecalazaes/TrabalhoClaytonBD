@@ -16,6 +16,8 @@ public class TestaDaoListaById {
         int id;
 
         while (true) {
+            System.out.println();
+            System.out.println("Escolhida opção 3 - Listar contato por ID.");
             System.out.print("Deseja buscar contato com qual ID? ");
 
             if (sc.hasNextInt()) {

@@ -17,6 +17,8 @@ public class TestaDaoUpdateById {
         int id;
 
         while (true) {
+            System.out.println();
+            System.out.println("Escolhida opção 5 - Atualizar contato.");
             System.out.print("Qual ID deseja atualizar? ");
 
             if (sc.hasNextInt()) {
@@ -50,6 +52,7 @@ public class TestaDaoUpdateById {
             System.out.print("Deseja atualizar este contato (S/N)? ");
             char op = sc.nextLine().toUpperCase().charAt(0);
             if (op == 'S') {
+                System.out.println();
                 System.out.println("Por favor, insira os novos dados:");
 
                 System.out.print("Novo Nome: ");
@@ -67,6 +70,7 @@ public class TestaDaoUpdateById {
                     ContatoDao dao = new ContatoDao();
                     dao.updateById(id, contatoAtualizado);
                     System.out.println("Contato atualizado com sucesso!");
+                    System.out.println();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

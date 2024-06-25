@@ -15,6 +15,8 @@ public class TestaDaoInsereScanner {
         int qtdAddContato;
 
         while (true) {
+            System.out.println();
+            System.out.println("Escolhida opção 1 - Inserir contato(s).");
             System.out.print("Deseja adicionar quantos contatos? ");
 
             if (sc.hasNextInt()) {
@@ -28,6 +30,7 @@ public class TestaDaoInsereScanner {
         }
 
         for (int i = 0; i < qtdAddContato; i++) {
+            System.out.println();
             System.out.print("Insira o nome do " + (i + 1) + "° contato: ");
             String nome = sc.nextLine();
 

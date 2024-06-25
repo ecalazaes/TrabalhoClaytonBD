@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import static app.MainApp.retornarMenuPrincipal;
 
-public class TesteDaoDeleteById {
+public class TestaDaoDeleteById {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Contato> contatos = null;
@@ -17,6 +17,8 @@ public class TesteDaoDeleteById {
         int id;
 
         while (true) {
+            System.out.println();
+            System.out.println("Escolhida opção 6 - Deletar contato(s)");
             System.out.print("Qual ID deseja deletar? ");
 
             if (sc.hasNextInt()) {
@@ -54,6 +56,7 @@ public class TesteDaoDeleteById {
                     ContatoDao dao = new ContatoDao();
                     dao.deleteById(id, contato);
                     System.out.println("Contato deletado com sucesso!");
+                    System.out.println();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

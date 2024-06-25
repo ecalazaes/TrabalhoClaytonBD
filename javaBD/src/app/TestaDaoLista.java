@@ -21,6 +21,7 @@ public class TestaDaoLista {
 
         if (contatos != null && !contatos.isEmpty()) {
             System.out.println();
+            System.out.println("Escolhida opção 2 - Listar de contato(s).");
             System.out.println("A lista de contatos possui " + contatos.size() + " contatos.");
             for (Contato contato : contatos) {
                 System.out.println("====================================================");
