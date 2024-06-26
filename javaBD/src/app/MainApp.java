@@ -8,51 +8,52 @@ public class MainApp {
         Scanner sc = new Scanner(System.in);
         int op = 0;
 
-            while (true) {
+        while (true) {
 
-                menu();
-                if (sc.hasNextInt()) {
-                    op = sc.nextInt();
-                    if(op >= 1 && op <= 7) {
-                        sc.nextLine();
-                        break;
-                    } else {
-                        System.out.println("Por favor, digite um número entre 1 a 7.");
-                        sc.nextLine();
-                    }
+            exibirMenu();
+
+            if (sc.hasNextInt()) {
+                op = sc.nextInt();
+                if (op >= 1 && op <= 7) {
+                    sc.nextLine();
+                    break;
                 } else {
                     System.out.println("Por favor, digite um número entre 1 a 7.");
                     sc.nextLine();
                 }
+            } else {
+                System.out.println("Entrada incorreta, digite um número entre 1 a 7.");
+                sc.nextLine();
             }
+        }
 
-            switch (op) {
-                case 1:
-                    TestaDaoInsereScanner.main(new String[]{});
-                    break;
-                case 2:
-                    TestaDaoLista.main(new String[]{});
-                    break;
-                case 3:
-                    TestaDaoListaById.main(new String[]{});
-                    break;
-                case 4:
-                    TestaDaoListaByInicial.main(new String[]{});
-                    break;
-                case 5:
-                    TestaDaoUpdateById.main(new String[]{});
-                    break;
-                case 6:
-                    TestaDaoDeleteById.main(new String[]{});
-                    break;
-                case 7:
-                    System.out.println("Saindo...");
-                    sc.close();
-                    break;
-            }
+        switch (op) {
+            case 1:
+                TestaDaoInsereScanner.main(new String[]{});
+                break;
+            case 2:
+                TestaDaoLista.main(new String[]{});
+                break;
+            case 3:
+                TestaDaoListaById.main(new String[]{});
+                break;
+            case 4:
+                TestaDaoListaByInicial.main(new String[]{});
+                break;
+            case 5:
+                TestaDaoUpdateById.main(new String[]{});
+                break;
+            case 6:
+                TestaDaoDeleteById.main(new String[]{});
+                break;
+            case 7:
+                System.out.println("Saindo...");
+                sc.close();
+                break;
+        }
     }
 
-    private static void menu() {
+    private static void exibirMenu() {
         System.out.println();
         System.out.println("Menu:");
         System.out.println("1. Inserir contatos");
