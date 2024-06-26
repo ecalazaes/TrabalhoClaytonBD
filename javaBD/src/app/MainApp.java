@@ -12,8 +12,8 @@ public class MainApp {
 
                 menu();
                 if (sc.hasNextInt()) {
-                    if(op > 1 && op < 8) {
-                        op = sc.nextInt();
+                    op = sc.nextInt();
+                    if(op >= 1 && op <= 7) {
                         sc.nextLine();
                         break;
                     } else {
