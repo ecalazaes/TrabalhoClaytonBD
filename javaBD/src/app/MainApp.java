@@ -6,17 +6,22 @@ public class MainApp {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int op;
+        int op = 0;
 
             while (true) {
 
                 menu();
                 if (sc.hasNextInt()) {
-                    op = sc.nextInt();
-                    sc.nextLine();
-                    break;
+                    if(op > 1 && op < 8) {
+                        op = sc.nextInt();
+                        sc.nextLine();
+                        break;
+                    } else {
+                        System.out.println("Por favor, digite um número entre 1 a 7.");
+                        sc.nextLine();
+                    }
                 } else {
-                    System.out.println("Por favor, digite um número válido.");
+                    System.out.println("Por favor, digite um número entre 1 a 7.");
                     sc.nextLine();
                 }
             }
