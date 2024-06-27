@@ -34,6 +34,7 @@ public class TestaDaoLista {
         } else {
             System.out.println("Lista de contatos está vazia!");
         }
+
         retornarMenuPrincipal();
     }
 }

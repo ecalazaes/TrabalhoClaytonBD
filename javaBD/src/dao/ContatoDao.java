@@ -113,8 +113,6 @@ public class ContatoDao implements RegrasDao<Contato> {
 
         ResultSet rset = stmtSelect.executeQuery();
 
-        List<Contato> contatos = new ArrayList<>();
-
         String sql = "UPDATE contatos SET nome = ?, email = ?, endereco = ? WHERE id = ?";
 
         PreparedStatement stmtUpdate = con.prepareStatement(sql);
@@ -124,7 +122,6 @@ public class ContatoDao implements RegrasDao<Contato> {
         stmtUpdate.setInt(4, id);
 
         stmtUpdate.executeUpdate();
-
 
         stmtUpdate.close();
         rset.close();
@@ -140,15 +137,12 @@ public class ContatoDao implements RegrasDao<Contato> {
 
         ResultSet rset = stmtSelect.executeQuery();
 
-        List<Contato> contatos = new ArrayList<>();
-
         String sql = "delete from contatos where id = ?";
 
         PreparedStatement stmtDelete = con.prepareStatement(sql);
         stmtDelete.setInt(1, id);
 
         stmtDelete.executeUpdate();
-
 
         stmtDelete.close();
         rset.close();

@@ -79,7 +79,7 @@ public class MainApp {
                 System.out.println("Saindo....");
                 break;
             } else {
-                System.out.println("Opção inválida. Tente Novamente.");
+                System.out.println("Opção inválida. Digite (S) ou (N).");
             }
         } while (op != 'S' && op != 'N');
         sc.close();

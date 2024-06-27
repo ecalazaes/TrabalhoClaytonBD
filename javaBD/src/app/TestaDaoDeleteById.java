@@ -30,6 +30,7 @@ public class TestaDaoDeleteById {
                 sc.nextLine();
             }
         }
+
         try {
             ContatoDao dao = new ContatoDao();
             contatos = dao.getListaById(id);
@@ -47,25 +48,32 @@ public class TestaDaoDeleteById {
                 System.out.println("Endereço: " + contatoDeletar.getEndereco());
                 System.out.println("====================================================");
             }
-            System.out.println();
 
-            System.out.print("Deseja deletar este contato (S/N)? ");
-            char op = sc.nextLine().toUpperCase().charAt(0);
-            if (op == 'S') {
-                try {
-                    ContatoDao dao = new ContatoDao();
-                    dao.deleteById(id, contato);
-                    System.out.println("Contato deletado com sucesso!");
+            System.out.println();
+            char op;
+            do {
+                System.out.print("Deseja deletar este contato (S/N)? ");
+                op = sc.nextLine().toUpperCase().charAt(0);
+                if (op == 'S') {
+                    try {
+                        ContatoDao dao = new ContatoDao();
+                        dao.deleteById(id, contato);
+                        System.out.println("Contato deletado com sucesso!");
+                        System.out.println();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else if (op == 'N') {
+                    System.out.println("Ok, não vamos deletar o contato.");
                     System.out.println();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } else {
+                    System.out.println("Opção inválida. Digite (S) ou (N).");
                 }
-            } else {
-                System.out.println("Ok, não vamos deletar o contato.");
-            }
+            } while (op != 'S' && op != 'N');
         } else {
-            System.out.println("Contato não encontrado!");
+            System.out.println("Não existe contato com esse ID!");
         }
+
         retornarMenuPrincipal();
         sc.close();
     }

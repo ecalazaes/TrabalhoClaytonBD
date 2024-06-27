@@ -52,6 +52,7 @@ public class TestaDaoInsereScanner {
                 e.printStackTrace();
             }
         }
+
         retornarMenuPrincipal();
         sc.close();
     }

@@ -30,6 +30,7 @@ public class TestaDaoUpdateById {
                 sc.nextLine();
             }
         }
+
         try {
             ContatoDao dao = new ContatoDao();
             contatos = dao.getListaById(id);
@@ -47,41 +48,47 @@ public class TestaDaoUpdateById {
                 System.out.println("Endereço: " + contato.getEndereco());
                 System.out.println("====================================================");
             }
+
             System.out.println();
-
-            System.out.print("Deseja atualizar este contato (S/N)? ");
-            char op = sc.nextLine().toUpperCase().charAt(0);
-            if (op == 'S') {
-                System.out.println();
-                System.out.println("Por favor, insira os novos dados:");
-
-                System.out.print("Novo Nome: ");
-                String nome = sc.nextLine();
-
-                System.out.print("Novo Email: ");
-                String email = sc.nextLine();
-
-                System.out.print("Novo Endereço: ");
-                String endereco = sc.nextLine();
-
-                contatoAtualizado = new Contato(nome, email, endereco);
-
-                try {
-                    ContatoDao dao = new ContatoDao();
-                    dao.updateById(id, contatoAtualizado);
-                    System.out.println("Contato atualizado com sucesso!");
+            char op;
+            do {
+                System.out.print("Deseja atualizar este contato (S/N)? ");
+                op = sc.nextLine().toUpperCase().charAt(0);
+                if (op == 'S') {
                     System.out.println();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println("Por favor, insira os novos dados:");
+
+                    System.out.print("Novo Nome: ");
+                    String nome = sc.nextLine();
+
+                    System.out.print("Novo Email: ");
+                    String email = sc.nextLine();
+
+                    System.out.print("Novo Endereço: ");
+                    String endereco = sc.nextLine();
+
+                    contatoAtualizado = new Contato(nome, email, endereco);
+
+                    try {
+                        ContatoDao dao = new ContatoDao();
+                        dao.updateById(id, contatoAtualizado);
+                        System.out.println("Contato atualizado com sucesso!");
+                        System.out.println();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else if (op == 'N') {
+                    System.out.println("Ok, não vamos atualizar o contato.");
+                    System.out.println();
+                } else {
+                    System.out.println("Opção inválida. Digite (S) ou (N).");
                 }
-            } else {
-                System.out.println("OK, não vamos atualizar este contato.");
-            }
+            } while (op != 'S' && op != 'N');
         } else {
             System.out.println("Não existe contato com esse ID!");
         }
+
         retornarMenuPrincipal();
         sc.close();
-
     }
 }

@@ -52,6 +52,7 @@ public class TestaDaoListaById {
         } else {
             System.out.println("Não existe contato com esse ID!");
         }
+
         retornarMenuPrincipal();
         sc.close();
     }

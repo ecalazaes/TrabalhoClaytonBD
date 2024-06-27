@@ -40,6 +40,7 @@ public class TestaDaoListaByInicial {
         } else {
             System.out.println("Não existe contato com essa inicial!");
         }
+
         retornarMenuPrincipal();
         sc.close();
     }
